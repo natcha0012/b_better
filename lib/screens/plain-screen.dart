@@ -1,3 +1,4 @@
+import 'package:b_better/pages/fight_page.dart';
 import 'package:flutter/material.dart';
 import 'package:b_better/pages/stat_page.dart';
 import 'package:b_better/pages/clothes_page.dart';
@@ -11,27 +12,32 @@ class BackgroundScreen extends StatefulWidget {
 }
 
 class _BackgroundScreenState extends State<BackgroundScreen> {
-  var page = 0;
-  final List<Color> themes = [
-    const Color.fromARGB(255, 153, 202, 155),
-    const Color.fromARGB(255, 111, 181, 239),
+  int currentPage = 0;
+
+  final List<Color> themes = const [
+    Color.fromARGB(255, 153, 202, 155),
+    Color.fromARGB(255, 111, 181, 239),
     Colors.amber,
   ];
-  final List<Widget> pageList = [StatPage(), ClothesPage(), StatPage()];
-  void onChangePage(int page) {
+
+  final List<Widget> pages = [StatPage(), const ClothesPage(), FightPage()];
+
+  void onChangePage(int index) {
     setState(() {
-      this.page = page;
+      currentPage = index;
     });
   }
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: themes[page],
-      body: pageList[page],
+      backgroundColor: themes[currentPage],
+      body: IndexedStack(index: currentPage, children: pages),
       bottomNavigationBar: SafeArea(
-        child: BottomBar(currentPageIndex: page, onTabSelected: onChangePage),
+        child: BottomBar(
+          currentPageIndex: currentPage,
+          onTabSelected: onChangePage,
+        ),
       ),
     );
   }
