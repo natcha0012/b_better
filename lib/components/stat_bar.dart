@@ -1,10 +1,17 @@
+import 'package:b_better/models/stat.dart';
 import 'package:flutter/material.dart';
-import 'package:b_better/components/activities_list.dart';
+import 'package:b_better/components/activity_list.dart';
 
 class StatBar extends StatefulWidget {
   final String title;
   final int power;
-  const StatBar({super.key, required this.title, required this.power});
+  final List<ActivityInfo> activityList;
+  const StatBar({
+    super.key,
+    required this.title,
+    required this.power,
+    required this.activityList,
+  });
 
   @override
   State<StatefulWidget> createState() => _StatBarState();
@@ -68,7 +75,7 @@ class _StatBarState extends State<StatBar> {
         if (isExpanded)
           Padding(
             padding: const EdgeInsets.only(left: 10.0, top: 5),
-            child: ActivitiesList(), // You can pass data here if needed
+            child: ActivityList(activityList: widget.activityList),
           ),
       ],
     );

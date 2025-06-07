@@ -23,6 +23,7 @@ class _BackgroundScreenState extends State<BackgroundScreen> {
   final List<Widget> pages = [StatPage(), const ClothesPage(), FightPage()];
 
   void onChangePage(int index) {
+    print('onchange page');
     setState(() {
       currentPage = index;
     });

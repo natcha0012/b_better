@@ -5,9 +5,10 @@ class FightPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("fight page");
     return Scaffold(
       backgroundColor: Colors.transparent, // or any color
-      body: Center(child: Text('FightPage')),
+      body: Center(child: Text('FightPage2')),
     );
   }
 }

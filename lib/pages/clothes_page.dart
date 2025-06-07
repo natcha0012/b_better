@@ -5,6 +5,7 @@ class ClothesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("clothes page");
     return Scaffold(
       backgroundColor: Colors.transparent, // or any color
       body: Center(child: Text('Clothes')),
