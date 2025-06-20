@@ -75,15 +75,7 @@ class StatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("build stat page");
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 202, 155),
-        title: const Text(
-          'My Stat',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
-        ),
-      ),
       backgroundColor: Colors.transparent, // or any color
       body: Stack(
         children: [
@@ -95,19 +87,19 @@ class StatPage extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned(
-                  right: 0,
-                  child: Image.asset('assets/avatar/base.png', height: 484),
+                  right: -40,
+                  child: Image.asset('assets/avatar/female.png', height: 484),
                 ),
-                Positioned(
-                  top: 120,
-                  right: 71,
-                  child: Image.asset('assets/avatar/eyes.png', width: 115),
-                ),
+                // Positioned(
+                //   top: 120,
+                //   right: 71,
+                //   child: Image.asset('assets/avatar/eyes.png', width: 115),
+                // ),
               ],
             ),
           ),
           Container(
-            padding: EdgeInsets.only(bottom: 10),
+            padding: EdgeInsets.only(bottom: 10, left: 10),
             child: SingleChildScrollView(
               clipBehavior: Clip.none,
               child: Column(

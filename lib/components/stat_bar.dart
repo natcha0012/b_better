@@ -29,43 +29,36 @@ class _StatBarState extends State<StatBar> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          margin: EdgeInsets.only(top: 10, left: 10),
-          padding: EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 5),
-          width: 160,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(15)),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 8,
-                offset: const Offset(0, -2),
-              ),
-            ],
+        ElevatedButton(
+          onPressed: () {
+            toggleExpanded();
+          },
+
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.white,
+            padding: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
           ),
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(width: 70, child: Text(widget.title)),
               SizedBox(width: 40, child: Text('${widget.power}')),
               SizedBox(
                 width: 20,
                 height: 30,
-                child: TextButton(
-                  style: TextButton.styleFrom(padding: const EdgeInsets.all(5)),
-                  onPressed: () {
-                    toggleExpanded();
-                  },
-                  child: Transform.rotate(
-                    angle:
-                        isExpanded
-                            ? 1.57 * 3
-                            : 1.57, // in radians (180 degrees = π)
-                    child: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15,
-                      weight: 900,
-                    ),
+                child: Transform.rotate(
+                  angle:
+                      isExpanded
+                          ? 1.57 * 3
+                          : 1.57, // in radians (180 degrees = π)
+                  child: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 15,
+                    weight: 900,
                   ),
                 ),
               ),
@@ -74,7 +67,7 @@ class _StatBarState extends State<StatBar> {
         ),
         if (isExpanded)
           Padding(
-            padding: const EdgeInsets.only(left: 10.0, top: 5),
+            padding: const EdgeInsets.only(top: 5),
             child: ActivityList(activityList: widget.activityList),
           ),
       ],

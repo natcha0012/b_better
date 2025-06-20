@@ -64,7 +64,7 @@ class _ActivityListState extends State<ActivityList> {
       width: 160,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white70,
+        color: const Color.fromRGBO(255, 255, 255, 0.702),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -90,23 +90,9 @@ class _ActivityListState extends State<ActivityList> {
                 ),
                 child: Text(activityUpdated[index].name),
               );
-              // return ActionButton(
-              //   editInfo: () => openModal('edit', activityUpdated[index]),
-              //   activityName: activityUpdated[index].name,
-              // );
             },
           ),
 
-          // ...activityUpdated.map(
-          //   (activity) => ElevatedButton(
-          //     onPressed: () => openModal('edit', activity),
-          //     style: ElevatedButton.styleFrom(
-          //       foregroundColor: Colors.black,
-          //       backgroundColor: Colors.white,
-          //     ),
-          //     child: Text(activity.name),
-          //   ),
-          // ),
           ElevatedButton(
             onPressed: () => openModal('create', null),
             style: ElevatedButton.styleFrom(

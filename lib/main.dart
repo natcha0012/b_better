@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:b_better/screens/plain-screen.dart';
+import 'package:b_better/screens/main-screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'B better',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        fontFamily: 'Fredoka',
       ),
-      home: BackgroundScreen(),
+      home: MainScreen(),
     );
   }
 }
